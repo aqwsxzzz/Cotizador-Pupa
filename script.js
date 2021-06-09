@@ -58,7 +58,6 @@ function calculoPosicion() {
   if (costoCordonXMetro > 0) costoCordonUtilizado(anchoBolsa);
   costoGrifasUtilizadas(cantidadBolsas);
   costoHiloUsado(cantidadBolsas);
-  console.log(anchoBolsa, largoBolsa, costoHiloNecesario);
   costoManoDeObra(anchoBolsa, largoBolsa);
   costoTotalCotizacion(
     costoTelaXMetro,
@@ -67,13 +66,7 @@ function calculoPosicion() {
     costoGrifasTotal,
     costoManoDeObraASumar
   );
-  console.log(
-    costoTelaXMetro,
-    costoHiloNecesario,
-    costoCordonTotal,
-    costoGrifasTotal,
-    costoManoDeObraASumar
-  );
+  console.log(costoManoDeObraASumar)
 }
 //Calcula cuantos metros de tela son necesarios.
 function cantidadTela(a, b, c) {
@@ -133,15 +126,15 @@ function costoGrifasUtilizadas(a) {
 }
 //Calcula el costo mano de obra.
 function costoManoDeObra(a, b) {
-  if (a + b <= 10) {
+  if (a + b <= 15) {
     costoManoDeObraASumar = 6 * cantidadBolsas;
-  } else if (a + b <= 20) {
+  } else if (a + b <= 30) {
     costoManoDeObraASumar = 7 * cantidadBolsas;
-  } else if (a + b <= 40) {
+  } else if (a + b <= 60) {
     costoManoDeObraASumar = 8 * cantidadBolsas;
-  } else if (a + b <= 50) {
+  } else if (a + b <= 75) {
     costoManoDeObraASumar = 9 * cantidadBolsas;
-  } else if (a + b <= 65) {
+  } else if (a + b <= 100) {
     costoManoDeObraASumar = 15 * cantidadBolsas;
   } else costoManoDeObraASumar = 30 * cantidadBolsas;
   let mensajeCostoManoDeObra = document.getElementById("costomanodeobra");
