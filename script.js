@@ -58,7 +58,7 @@ function calculoPosicion() {
   if (costoCordonXMetro > 0) costoCordonUtilizado(anchoBolsa);
   costoGrifasUtilizadas(cantidadBolsas);
   costoHiloUsado(cantidadBolsas);
-  console.log(anchoBolsa, largoBolsa, costoHiloNecesario)
+  console.log(anchoBolsa, largoBolsa, costoHiloNecesario);
   costoManoDeObra(anchoBolsa, largoBolsa);
   costoTotalCotizacion(
     costoTelaXMetro,
@@ -73,7 +73,7 @@ function calculoPosicion() {
     costoCordonTotal,
     costoGrifasTotal,
     costoManoDeObraASumar
-  )
+  );
 }
 //Calcula cuantos metros de tela son necesarios.
 function cantidadTela(a, b, c) {
