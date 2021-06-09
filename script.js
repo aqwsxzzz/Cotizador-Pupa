@@ -52,6 +52,9 @@ function calculoPosicion() {
   let opcionCorte = document.getElementById("opcioncorte");
   let mensajeCorte = document.getElementById("mejorcorte");
   mensajeCorte.innerHTML = "Mejor corte a lo " + anchoOLargo;
+  let costoCordonTotal = 0;
+  let costoHiloNecesario;
+  let costoManoDeObraASumar;
   if (costoCordonXMetro > 0) costoCordonUtilizado(anchoBolsa);
   costoGrifasUtilizadas(cantidadBolsas);
   costoManoDeObra(anchoBolsa, largoBolsa);
@@ -62,6 +65,13 @@ function calculoPosicion() {
     costoGrifasTotal,
     costoManoDeObraASumar
   );
+  console.log(
+    costoTelaXMetro,
+    costoHiloNecesario,
+    costoCordonTotal,
+    costoGrifasTotal,
+    costoManoDeObraASumar
+  )
 }
 //Calcula cuantos metros de tela son necesarios.
 function cantidadTela(a, b, c) {
@@ -102,14 +112,14 @@ function costoTelaUsada(a, b) {
 }
 //Calcula el costo del hilo utilizado.
 function costoHiloUsado(a) {
-  let costoHiloNecesario = costoHiloUnidad * a;
+  costoHiloNecesario = costoHiloUnidad * a;
   let mensajeCostoHilo = document.getElementById("costohilonecesario");
   mensajeCostoHilo.innerHTML =
     "Costo hilo: $" + (parseInt(costoHiloNecesario) + 1);
 }
 //Calcula el costo del cordon utilizado.
 function costoCordonUtilizado(a) {
-  let costoCordonTotal = (costoCordonXMetro / 3000) * a * 4 + 20;
+  costoCordonTotal = (costoCordonXMetro / 3000) * a * 4 + 20;
   let mensajeCostoCordon = document.getElementById("costocordonnecesario");
   mensajeCostoCordon.innerHTML =
     "Costo cordon: $" + (parseInt(costoCordonTotal) + 1);
@@ -122,7 +132,6 @@ function costoGrifasUtilizadas(a) {
 }
 //Calcula el costo mano de obra.
 function costoManoDeObra(a, b) {
-  let costoManoDeObraASumar;
   if (a + b <= 10) {
     costoManoDeObraASumar = 6;
   } else if (a + b <= 20) {
