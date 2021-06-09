@@ -3,6 +3,9 @@ let costoHiloUnidad = 0.8;
 let costoCordonXMetro = document.getElementById("costocordon").value;
 let cantidadBolsas = document.getElementById("cantidadbolsas").value;
 let costoGrifaXBolsa = 5;
+let costoCordonTotal = 0;
+let costoHiloNecesario;
+let costoManoDeObraASumar;
 
 //Calcula la mejor posicion de corte (a lo largo/a lo ancho) y cantidad de bolsas por metro.
 function calculoPosicion() {
@@ -52,11 +55,10 @@ function calculoPosicion() {
   let opcionCorte = document.getElementById("opcioncorte");
   let mensajeCorte = document.getElementById("mejorcorte");
   mensajeCorte.innerHTML = "Mejor corte a lo " + anchoOLargo;
-  let costoCordonTotal = 0;
-  let costoHiloNecesario;
-  let costoManoDeObraASumar;
   if (costoCordonXMetro > 0) costoCordonUtilizado(anchoBolsa);
   costoGrifasUtilizadas(cantidadBolsas);
+  costoHiloUsado(cantidadBolsas);
+  console.log(anchoBolsa, largoBolsa, costoHiloNecesario)
   costoManoDeObra(anchoBolsa, largoBolsa);
   costoTotalCotizacion(
     costoTelaXMetro,
@@ -100,7 +102,6 @@ function cantidadTela(a, b, c) {
   metrosNecesariosFinal.innerHTML =
     "Se necesitan " + j + "," + parseInt(extraMetrosTela) + " metros de tela.";
   costoTelaUsada(j, extraMetrosTela);
-  costoHiloUsado(cantidadBolsas);
 }
 //Calcula el costo de la tela utilizada.
 function costoTelaUsada(a, b) {
@@ -133,16 +134,16 @@ function costoGrifasUtilizadas(a) {
 //Calcula el costo mano de obra.
 function costoManoDeObra(a, b) {
   if (a + b <= 10) {
-    costoManoDeObraASumar = 6;
+    costoManoDeObraASumar = 6 * cantidadBolsas;
   } else if (a + b <= 20) {
-    costoManoDeObraASumar = 7;
+    costoManoDeObraASumar = 7 * cantidadBolsas;
   } else if (a + b <= 40) {
-    costoManoDeObraASumar = 8;
+    costoManoDeObraASumar = 8 * cantidadBolsas;
   } else if (a + b <= 50) {
-    costoManoDeObraASumar = 9;
+    costoManoDeObraASumar = 9 * cantidadBolsas;
   } else if (a + b <= 65) {
-    costoManoDeObraASumar = 15;
-  } else costoManoDeObraASumar = 30;
+    costoManoDeObraASumar = 15 * cantidadBolsas;
+  } else costoManoDeObraASumar = 30 * cantidadBolsas;
   let mensajeCostoManoDeObra = document.getElementById("costomanodeobra");
   mensajeCostoManoDeObra.innerHTML =
     "Costo mano de obra: $" + parseInt(costoManoDeObraASumar);
