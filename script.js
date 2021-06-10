@@ -3,6 +3,7 @@ let costoGrifaXBolsa = 5;
 let costoCordonTotal = 0;
 let costoHiloNecesario;
 let costoManoDeObraASumar;
+let costoTelaUsadaF;
 
 //Calcula la mejor posicion de corte (a lo largo/a lo ancho) y cantidad de bolsas por metro.
 function calculoPosicion() {
@@ -79,14 +80,15 @@ function calculoPosicion() {
   costoGrifasUtilizadas(cantidadBolsas);
   costoHiloUsado(cantidadBolsas);
   costoManoDeObra(anchoBolsa, largoBolsa, cantidadBolsas);
+  console.log(costoTelaXMetro)
   costoTotalCotizacion(
-    costoTelaXMetro,
+    costoTelaUsadaF,
     costoHiloNecesario,
     costoCordonTotal,
     costoGrifasTotal,
     costoManoDeObraASumar
   );
-  console.log(costoManoDeObraASumar)
+
 }
 //Calcula cuantos metros de tela son necesarios.
 function cantidadTela(a, b, c, d, e) {
@@ -115,11 +117,11 @@ function cantidadTela(a, b, c, d, e) {
 }
 //Calcula el costo de la tela utilizada.
 function costoTelaUsada(a, b, c) {
-  c = c / 100;
-  c = c * (a * 100 + b);
+  costoTelaUsadaF = c / 100;
+  costoTelaUsadaF = costoTelaUsadaF * (a * 100 + b);
   let costoTelaNecesaria = document.getElementById("costotelanecesaria");
   costoTelaNecesaria.innerHTML =
-    "Costo tela: $" + (parseInt(c) + 1);
+    "Costo tela: $" + (parseInt(costoTelaUsadaF) + 1);
 }
 //Calcula el costo del hilo utilizado.
 function costoHiloUsado(a) {
