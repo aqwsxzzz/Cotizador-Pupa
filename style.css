@@ -6,6 +6,68 @@ input::-webkit-inner-spin-button {
 }
 
 /* Firefox */
-input[type=number] {
+input[type="number"] {
   -moz-appearance: textfield;
+}
+#body {
+  height: 1000px;
+}
+#bodymain {
+  width: 100%;
+  height: 100%;
+}
+#title {
+  text-align: center;
+  height: 200px;
+}
+#informaciontotal {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+#informacion {
+  width: 100%;
+  display: flex;
+}
+#formulario {
+  width: 100%;
+}
+#TotalInputs {
+  height: 300px;
+}
+#abc {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.inputs1 {
+  border: solid 1px;
+  background-color: rgb(245, 212, 212);
+}
+.botoninformacion {
+  width: 1000px;
+}
+
+.triples {
+  height: 150px;
+}
+second {
+  display: flex;
+  flex-direction: column;
+  justify-items: right;
+}
+img-logo {
+  height: 30px;
+}
+mini-box {
+  padding-top: 0px;
+}
+#button1 {
+  display: flex;
+  justify-content: center;
+}
+opcioncorte {
+  background-color: red;
 }

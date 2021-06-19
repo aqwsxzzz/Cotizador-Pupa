@@ -1,44 +1,98 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cotizador Pupa</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
-    <div>
-        <div>
-            <h1>Cotizador Pupa</h1>
-        </div>
-        <div>
-            <h2>Nueva cotizacion</h2>
-        </div>
-        <div id="informacion">
-            <input class="inputs" type="number" placeholder="Costo Tela" id="costotela" name="costotela">
-            <input class="inputs" type="number" placeholder="Costo Cordon" id="costocordon" name="costocordon">
-            <input class="inputs" type="number" placeholder="Cantidad" id="cantidadbolsas" name="cantidadbolsas">
-            <input class="inputs" type="number" placeholder="Ancho Tela" id="anchotela" name="anchotela">
-            <input class="inputs" type="number" placeholder="Ancho Bolsa" id="anchobolsa" name="anchobolsa">
-            <input class="inputs" type="number" placeholder="Largo Bolsa" id="largobolsa" name="largobolsa">
-            <button id="botoninformacion">Enviar</button>
-        </div>
-        <div id="opcioncorte">
-            <h3>Mejor opción de corte</h3>
-            <p id="mejorcorte"></p>
-        </div>
-        <div id="cotizacion">
-            <h3>Cotización</h3>
-            <p id="metrosnecesarios"></p>
-            <p id="costotelanecesaria"></p>
-            <p id="costohilonecesario"></p>
-            <p id="costocordonnecesario"></p>
-            <p id="costogrifasnecesarias"></p>
-            <p id="costomanodeobra"></p>
-            <p id="costototal"></p>
-        </div>
 
+<body id="body" background="LogoPupa.jpg">
+    <div class="text-dark " id="bodymain" style="font-weight: bold;">
+        <div id="title">
+            <p class="display-1 " >Pupa Creaciones</p>
+            <p class="display-4">Cotizador</p>
+        </div>
+        <div id="informaciontotal">
+            <div id="informacion">
+                <div id="formulario">
+                    <div id="TotalInputs">
+                        <div class="d-flex flex-row triples">
+                            <div class="col-4">
+                                <div class="inputs flex-column d-flex flex-wrap align-content-center">
+                                    <label class="sr-only " for="costotela">Costo Tela</label>
+                                    <input class="form-control w-25 inputs1" type="number" id="costotela"
+                                        name="costotela" size="80">
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <div class="inputs flex-column d-flex flex-wrap align-content-center">
+                                    <label class="sr-only" for="cantidadbolsas">Cant. Bolsas</label>
+                                    <input class="form-control w-25 inputs1" type="number"
+                                        id="cantidadbolsas" name="cantidadbolsas" size="80">
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <div class="inputs flex-column d-flex flex-wrap align-content-center">
+                                    <label class="sr-only" for="costocordon">Costo Cordon</label>
+                                    <input class="form-control w-25 inputs1" type="number"
+                                        id="costocordon" name="costocordon" size="80">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="d-flex flex-row triples">
+                            <div class="col-4">
+                                <div class="inputs flex-column d-flex flex-wrap align-content-center">
+                                    <label class="sr-only" for="anchotela">Ancho Tela</label>
+                                    <input class="form-control w-25 inputs1" type="number" id="anchotela"
+                                        name="anchotela" size="80">
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <div class="inputs flex-column d-flex flex-wrap align-content-center">
+                                    <label class="sr-only" for="largobolsa">Largo Bolsa</label>
+                                    <input class="form-control w-25 inputs1" type="number" id="largobolsa"
+                                        name="largobolsa" size="80">
+                                </div>
+                            </div>
+                            <div class="col-4 ">
+                                <div class="inputs flex-column d-flex flex-wrap align-content-center">
+                                    <label class="sr-only" for="anchobolsa">Ancho Bolsa</label>
+                                    <input class="form-control w-25 inputs1" type="number" id="anchobolsa"
+                                        name="anchobolsa" size="80">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="button1">
+                        <button class="btn btn-primary mb-2 w-25" id="botoninformacion">Enviar</button>
+                    </div>
+                </div>
+            </div>
+            <div id="opcioncorte" class="d-flex flex-column flex-wrap align-content-center">
+                <h3>Mejor opción de corte</h3>
+                <p id="mejorcorte"></p>
+            </div>
+            <div id="cotizacion" class="d-flex flex-column flex-wrap align-content-center">
+                <h3>Cotización</h3>
+                <p id="metrosnecesarios"></p>
+                <p id="costotelanecesaria"></p>
+                <p id="costohilonecesario"></p>
+                <p id="costocordonnecesario"></p>
+                <p id="costogrifasnecesarias"></p>
+                <p id="costomanodeobra"></p>
+                <p id="costototal"></p>
+            </div>
+
+        </div>
     </div>
     <script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+        crossorigin="anonymous"></script>
 </body>
+
 </html>

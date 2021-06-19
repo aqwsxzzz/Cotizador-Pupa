@@ -8,8 +8,12 @@ let costoTelaUsadaF;
 //Calcula la mejor posicion de corte (a lo largo/a lo ancho) y cantidad de bolsas por metro.
 function calculoPosicion() {
   let costoTelaXMetro = parseInt(document.getElementById("costotela").value);
-  let costoCordonXMetro = parseInt(document.getElementById("costocordon").value);
-  let cantidadBolsas = parseInt(document.getElementById("cantidadbolsas").value);
+  let costoCordonXMetro = parseInt(
+    document.getElementById("costocordon").value
+  );
+  let cantidadBolsas = parseInt(
+    document.getElementById("cantidadbolsas").value
+  );
   let anchoBolsa = parseInt(document.getElementById("anchobolsa").value);
   let largoBolsa = parseInt(document.getElementById("largobolsa").value);
   let anchoTela = parseInt(document.getElementById("anchotela").value);
@@ -18,7 +22,7 @@ function calculoPosicion() {
   for (let i = anchoBolsa; i <= anchoTela; i += anchoBolsa) {
     anchoEnAncho++;
   }
-  console.log(anchoEnAncho)
+  console.log(anchoEnAncho);
   let largoEnAncho = 0;
   for (let k = largoBolsa; k <= anchoTela; k += largoBolsa) {
     largoEnAncho++;
@@ -54,7 +58,7 @@ function calculoPosicion() {
     if (ancho > largo) {
       anchoOLargo = "ancho. Salen: " + ancho + " bolsas.";
       soloValor = ancho;
-      console.log(ancho)
+      console.log(ancho);
       cantidadTela(
         soloValor,
         anchoEnAncho,
@@ -79,9 +83,10 @@ function calculoPosicion() {
   let opcionCorte = document.getElementById("opcioncorte");
   let mensajeCorte = document.getElementById("mejorcorte");
   mensajeCorte.innerHTML = "Mejor corte a lo " + anchoOLargo;
-  console.log(anchoBolsa, costoCordonXMetro)
-  if (costoCordonXMetro > 0) costoCordonUtilizado(anchoBolsa, costoCordonXMetro, cantidadBolsas);
-  console.log(costoCordonTotal)
+  console.log(anchoBolsa, costoCordonXMetro);
+  if (costoCordonXMetro > 0)
+    costoCordonUtilizado(anchoBolsa, costoCordonXMetro, cantidadBolsas);
+  console.log(costoCordonTotal);
   costoGrifasUtilizadas(cantidadBolsas);
   costoHiloUsado(cantidadBolsas);
   costoManoDeObra(anchoBolsa, largoBolsa, cantidadBolsas);
@@ -92,7 +97,6 @@ function calculoPosicion() {
     costoGrifasTotal,
     costoManoDeObraASumar
   );
-
 }
 //Calcula cuantos metros de tela son necesarios.
 function cantidadTela(a, b, c, d, e, f) {
@@ -108,11 +112,11 @@ function cantidadTela(a, b, c, d, e, f) {
   let restoBolsasRem;
   if (d < k) {
     restoBolsasDiv = f * -1;
-  }else {
-  restoBolsasRem = (d - k) % b;
-  if (restoBolsasRem > 0) {
-    restoBolsasDiv + 1;
-  }
+  } else {
+    restoBolsasRem = (d - k) % b;
+    if (restoBolsasRem > 0) {
+      restoBolsasDiv + 1;
+    }
   }
   let extraMetrosTela = restoBolsasDiv * c;
   if (a > d) {
@@ -141,8 +145,8 @@ function costoHiloUsado(a) {
 }
 //Calcula el costo del cordon utilizado.
 function costoCordonUtilizado(a, b, c) {
-  costoCordonTotal = ((b / 3000) * a * 4 + (20 * b / 3000)) * c;
-  
+  costoCordonTotal = ((b / 3000) * a * 4 + (20 * b) / 3000) * c;
+
   let mensajeCostoCordon = document.getElementById("costocordonnecesario");
   mensajeCostoCordon.innerHTML =
     "Costo cordon: $" + (parseInt(costoCordonTotal) + 1);
